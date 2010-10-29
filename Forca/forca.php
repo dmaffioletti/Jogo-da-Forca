@@ -10,7 +10,7 @@ class Forca {
   }
 
   public function registryPositions( array $positions ){
-    return true;
+    //return true;
   }
   
   public function gameOver(){
