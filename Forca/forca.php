@@ -6,7 +6,7 @@ class Forca {
   private $life = 5;
 
   public function __construct(){
-    $this->setTagCurrent('uva');
+    $this->setTagCurrent('abacaxi');
   }
 
   public function getLetters(){
@@ -25,8 +25,7 @@ class Forca {
         $arrReturn[] = '_';
       }
     }
-    $this->x( $arrReturn );
-    //return $arrReturn;
+    return $arrReturn;
   }
   
   public function gameOver(){
