@@ -6,15 +6,32 @@ class Forca {
   private $life = 5;
 
   public function __construct(){
-    $this->setTagCurrent('bmw');
+    $this->setTagCurrent('uva');
   }
 
-  public function registryPositions( array $positions ){
-    //return true;
+  public function getLetters(){
+    $tag = $this->getTagCurrent();
+    for( $i=0; $i < strlen( $tag ); $i++ ){
+      $arrLetter[] = $tag[ $i ];
+    }
+    return $arrLetter;
+  }
+
+  public function printLetter( $arrLetters , $letter ){
+    for( $i=0; $i < count( $arrLetters ); $i++ ){
+      if( $arrLetters[ $i ] == $letter ){
+        $arrReturn[] = $letter;
+      } else {
+        $arrReturn[] = '_';
+      }
+    }
+    $this->x( $arrReturn );
+    //return $arrReturn;
   }
   
   public function gameOver(){
-    return "Você perdeu! a palavra é " . $this->getTagCurrent();
+    echo "VocÃª perdeu! A palavra correta Ã© <strong>" . $this->getTagCurrent() . "</strong>";
+    die;
   }
 
   public function getTagCurrent(){
@@ -39,17 +56,13 @@ class Forca {
   }
 
   public function tagSearchLetter( $letter ){
-    if( $this->life >= 0 ){
-      $tag = $this->getTagCurrent();
-      for( $i=0; $i < strlen( $tag ); $i++ ){
-        $arrLetter[] = $tag[ $i ];
-      }
-      $searchPositions = array_keys( $arrLetter , $letter );
-      if( ! empty( $searchPositions ) ){
-        $this->registryPositions( $searchPositions );
+    if( ! $this->getLife() == 0 ){
+      $arrLetter = array_values ( $this->getLetters() );
+      if( ! empty( $arrLetter ) ){
+        $this->printLetter( $arrLetter , $letter );
         return true;
       } else {
-        $this->removeLife();
+      	$this->removeLife();
         return true;
       }
     } else {

@@ -5,4 +5,4 @@
         ->addListener(new \PhpDescribe\EventListener\DisplayCodeListener())
         ->addListener(new \PhpDescribe\EventListener\RenameListener())
         ->setSpec('forca')
-        ->runAndReport($_REQUEST);
+        ->runAndReport( $_REQUEST );
