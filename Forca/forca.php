@@ -68,10 +68,4 @@ class Forca {
       $this->gameOver();
     }
   }
-
-  public function x( $coisa ){
-    print '<pre>';
-    print_r( $coisa );
-    die;
-  }
 }
